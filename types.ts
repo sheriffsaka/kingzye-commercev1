@@ -9,8 +9,11 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  password?: string; // For simulation only
   role: UserRole;
+  phone?: string;
   loyaltyPoints?: number;
+  isActive: boolean; // For wholesale verification
 }
 
 export interface Product {
@@ -25,25 +28,27 @@ export interface Product {
   requiresPrescription: boolean;
   image: string;
   sku: string;
+  minOrderQuantity: number; // New: For Wholesale enforcement
 }
 
-// STRICT ORDER LIFECYCLE STATES
+// STRICT ORDER LIFECYCLE STATES MATCHING PRD
 export enum OrderStatus {
-  RECEIVED = 'Received',
+  RECEIVED = 'Order Received',
   INVOICE_GENERATED = 'Invoice Generated',
   PAYMENT_PENDING = 'Payment Pending',
-  PAYMENT_REVIEW = 'Payment Review', // For manual proof verification
+  PAYMENT_REVIEW = 'Payment Review',
   PAYMENT_CONFIRMED = 'Payment Confirmed',
-  ORDER_APPROVED = 'Order Approved', // Inventory Sync happens here
+  ORDER_APPROVED = 'Order Approved', // Ready for Logistics
   PACKED = 'Packed',
-  DISPATCHED = 'Dispatched',
+  DISPATCHED = 'Dispatched', // In Transit
   DELIVERED = 'Delivered',
   CANCELLED = 'Cancelled'
 }
 
 export enum PaymentMethod {
-  ONLINE_CARD = 'Online Card',
-  BANK_TRANSFER = 'Bank Transfer'
+  ONLINE_CARD = 'Paystack (Online)',
+  BANK_TRANSFER = 'Bank Transfer',
+  PAY_ON_DELIVERY = 'Pay on Delivery'
 }
 
 export interface OrderItem {

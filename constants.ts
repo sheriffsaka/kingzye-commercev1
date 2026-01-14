@@ -15,7 +15,8 @@ export const MOCK_PRODUCTS: Product[] = [
     packSize: '20 Capsules',
     requiresPrescription: true,
     image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=400&q=80',
-    sku: 'AMX-500'
+    sku: 'AMX-500',
+    minOrderQuantity: 10
   },
   {
     id: 'p2',
@@ -28,7 +29,8 @@ export const MOCK_PRODUCTS: Product[] = [
     packSize: '100 Tablets',
     requiresPrescription: false,
     image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80',
-    sku: 'PCM-500'
+    sku: 'PCM-500',
+    minOrderQuantity: 50
   },
   {
     id: 'p3',
@@ -41,7 +43,8 @@ export const MOCK_PRODUCTS: Product[] = [
     packSize: '30 Tablets',
     requiresPrescription: false,
     image: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=400&q=80',
-    sku: 'CET-010'
+    sku: 'CET-010',
+    minOrderQuantity: 20
   },
   {
     id: 'p4',
@@ -54,7 +57,8 @@ export const MOCK_PRODUCTS: Product[] = [
     packSize: '60 Tablets',
     requiresPrescription: true,
     image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=400&q=80',
-    sku: 'MET-500'
+    sku: 'MET-500',
+    minOrderQuantity: 10
   },
   {
     id: 'p5',
@@ -67,15 +71,16 @@ export const MOCK_PRODUCTS: Product[] = [
     packSize: '90 Softgels',
     requiresPrescription: false,
     image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=400&q=80',
-    sku: 'VIT-D3'
+    sku: 'VIT-D3',
+    minOrderQuantity: 15
   }
 ];
 
 export const MOCK_USERS: User[] = [
-  { id: 'u1', name: 'John Doe', email: 'john@public.com', role: UserRole.PUBLIC },
-  { id: 'u2', name: 'MediCorp Pharmacies', email: 'purchasing@medicorp.com', role: UserRole.WHOLESALE, loyaltyPoints: 4500 },
-  { id: 'u3', name: 'Admin User', email: 'admin@kingzypharma.com', role: UserRole.ADMIN },
-  { id: 'u4', name: 'Logistics Team', email: 'delivery@kingzypharma.com', role: UserRole.LOGISTICS },
+  { id: 'u1', name: 'John Doe', email: 'john@public.com', role: UserRole.PUBLIC, isActive: true },
+  { id: 'u2', name: 'MediCorp Pharmacies', email: 'purchasing@medicorp.com', role: UserRole.WHOLESALE, loyaltyPoints: 4500, isActive: true },
+  { id: 'u3', name: 'Admin User', email: 'admin@kingzypharma.com', role: UserRole.ADMIN, isActive: true },
+  { id: 'u4', name: 'Logistics Team', email: 'delivery@kingzypharma.com', role: UserRole.LOGISTICS, isActive: true },
 ];
 
 export const MOCK_ORDERS: Order[] = [
