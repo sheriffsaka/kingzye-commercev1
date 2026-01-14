@@ -1,0 +1,7 @@
+{
+  "name": "Kingzy Pharmaceuticals Limited",
+  "description": "A professional pharmaceutical e-commerce platform for retail, wholesale, and logistics management.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
