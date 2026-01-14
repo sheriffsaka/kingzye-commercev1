@@ -4,8 +4,12 @@ import { MOCK_PRODUCTS } from "../constants";
 let client: GoogleGenAI | null = null;
 
 const getClient = () => {
-  if (!client && process.env.API_KEY) {
-    client = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // SAFELY ACCESS PROCESS.ENV to prevent browser crashes
+  // In pure browser environments, process is undefined.
+  const apiKey = (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : null;
+
+  if (!client && apiKey) {
+    client = new GoogleGenAI({ apiKey });
   }
   return client;
 };
@@ -13,7 +17,7 @@ const getClient = () => {
 export const getGeminiResponse = async (userPrompt: string): Promise<string> => {
   const ai = getClient();
   if (!ai) {
-    return "AI Assistant is currently offline. Please configure the API Key.";
+    return "AI Assistant is currently offline. (API Key missing)";
   }
 
   // Create a context-aware system instruction
